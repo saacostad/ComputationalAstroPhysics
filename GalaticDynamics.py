@@ -6,7 +6,7 @@ h = 2.0
 
 
 def first_OD(index, dx):
-    return (F[index + 1] - F[index - 1]) / dx
+    return (F[index + 1] - F[index - 1]) / (2.0*dx)
 
 def second_OD(index, dx):
     return ( F[index+1] - 2.0*F[index] + F[index-1]) / (dx**2)
