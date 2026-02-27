@@ -1,5 +1,14 @@
 first commit
 
 
-** IMPORTANTE ** 
+**IMPORTANTE** 
 Los ejercicios de cada clase/tema se encuentran en branches diferentes (con el fin de organizar mejor todo)
+
+**Branch Intro**
+Se encuentran 3 ejercicios: 
+1. Primer uso de github
+2. Ejercicio de las temperaturas de Numpy
+3. Ejercicios de python (no del todo completos)
+
+**Branch FiniteDifferences**
+Se encuentran los dos ejercicios de clase + las tareas
