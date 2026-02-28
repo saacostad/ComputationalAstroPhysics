@@ -10,5 +10,8 @@ Se encuentran 3 ejercicios:
 2. Ejercicio de las temperaturas de Numpy
 3. Ejercicios de python (no del todo completos)
 
-**Branch FiniteDifferences**
-Se encuentran los dos ejercicios de clase + las tareas
+**Branch FundamentalALgorithms**
+Ejercicios de las clases de algoritmos fundamentales
+
+`Finite Differences/` contiene los ejercicios de clase y los 3 ejercicios de tarea sobre el tema
+`Integration/` contiene los ejercicios de Riemman, Trapezio y Simpson.  
