@@ -16,4 +16,5 @@ Se encuentran 3 ejercicios:
 Ejercicios de las clases de algoritmos fundamentales
 
 `Finite Differences/` contiene los ejercicios de clase y los 3 ejercicios de tarea sobre el tema
+
 `Integration/` contiene los ejercicios de Riemman, Trapezio y Simpson.  
