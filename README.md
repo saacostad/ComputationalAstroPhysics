@@ -18,3 +18,9 @@ Ejercicios de las clases de algoritmos fundamentales
 `Finite Differences/` contiene los ejercicios de clase y los 3 ejercicios de tarea sobre el tema
 
 `Integration/` contiene los ejercicios de Riemman, Trapezio y Simpson.  
+
+`Root Searching/` contiene el pdf de la tarea sobre bisection, Newton-Rhapson (single value y sistema 2x2) y secante, junto con el script usado para generar el $\LaTeX$. 
+
+## Branch WeeklyProjects
+
+Aquí iré subiendo los mini-projectos a medida que los vaya haciendo, cada uno en su respectiva carpeta 
