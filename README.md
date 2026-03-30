@@ -11,7 +11,7 @@ Se encuentran 3 ejercicios:
 2. Ejercicio de las temperaturas de Numpy
 3. Ejercicios de python (no del todo completos)
 
-## Branch FundamentalALgorithms
+## Branch FundamentalAlgorithms
 
 Ejercicios de las clases de algoritmos fundamentales
 
@@ -20,6 +20,8 @@ Ejercicios de las clases de algoritmos fundamentales
 `Integration/` contiene los ejercicios de Riemman, Trapezio y Simpson.  
 
 `Root Searching/` contiene el pdf de la tarea sobre bisection, Newton-Rhapson (single value y sistema 2x2) y secante, junto con el script usado para generar el $\LaTeX$. 
+
+`Differential Equations/` contiene la primera tarea `Homework 1`, sobre implemental Euler en alguna ecuación física cualquiera. 
 
 ## Branch WeeklyProjects
 
