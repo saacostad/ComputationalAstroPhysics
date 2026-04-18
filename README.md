@@ -21,7 +21,10 @@ Ejercicios de las clases de algoritmos fundamentales
 
 `Root Searching/` contiene el pdf de la tarea sobre bisection, Newton-Rhapson (single value y sistema 2x2) y secante, junto con el script usado para generar el $\LaTeX$. 
 
-`Differential Equations/` contiene la primera tarea `Homework 1`, sobre implemental Euler en alguna ecuación física cualquiera. Igualmente, contiene la tarea `Runge-Kuta-exercise.py` sobre integrar una EDO (Circuito RC) y aplicar tanto regresión linearizada como método del secante.
+`Differential Equations/` contiene la primera tarea `Homework 1`, sobre implementar Euler en alguna ecuación física cualquiera. Igualmente, contiene la tarea `Runge-Kuta-exercise.py` sobre integrar una EDO (Circuito RC) y aplicar tanto regresión linearizada como método del secante.
+
+
+`Regression/` contiene la tarea `Regression.py`, que consta de hacer la regresión de un set de datos exponenciales, primero, linealizándolos, y luego sin linealizar, utilizando el método de bisección.
 
 
 ## Branch WeeklyProjects
