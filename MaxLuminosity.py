@@ -78,6 +78,12 @@ ys = [y0]
 # Contador para revisar cositas 
 count = 1
 
+
+print("="*20)
+print("PARA UN TAMAÑO DE PASO CONSTANTE")
+print("="*20)
+
+
 # Realizamos el bucle
 while np.linalg.norm(grad) > treshold:
    
@@ -97,15 +103,17 @@ while np.linalg.norm(grad) > treshold:
     count += 1 
 
 print()
-print(f"Estimación final: x = {x0} | y = {y0} | f(x, y) = {Lcart(x0, y0)} | grad = {grad}")
-
+print("-"*10)
+print(f"Estimación final: r = {np.sqrt(x0**2 + y0**2)} | theta = {np.arctan2(x0, y0)} | f(r, theta) = {Lcart(x0, y0)} | grad = {grad}")
+print(f"dado en {count} pasos")
+print()
 
 
 """ 
 Ahora, para ver este comportamiento, vamos a plotear los valores 
 """
 
-def create_graph(points_x, points_y, limsx = 3.0, limsy = 3.0, n = 100):
+def create_graph(points_x, points_y, title, limsx = 3.0, limsy = 3.0, n = 100):
 
     # Creamos una grilla
     x = np.linspace(-limsx, limsx, n)
@@ -122,18 +130,82 @@ def create_graph(points_x, points_y, limsx = 3.0, limsy = 3.0, n = 100):
     ax = fig.add_subplot(111, projection="3d")
     
     # La función
-    ax.plot_surface(X, Y, Z, cmap="viridis", alpha=0.7, zorder=0)
+    ax.plot_surface(X, Y, Z, cmap="viridis", alpha=0.5, zorder=0)
 
     # Hacemos el track de los puntos
-    ax.plot(px, py, pz, color="red", linewidth=2, zorder=5)
+    ax.plot(px, py, pz, color="red", linewidth=1.5, zorder=5)
     ax.scatter(px, py, pz, color="red", s=20, zorder=6)
     
     # Labels
+    ax.set_title(title)
     ax.set_xlabel("x")
     ax.set_ylabel("y")
     ax.set_zlabel("L(x, y)")
     plt.tight_layout()
     plt.show()
 
-create_graph(xs, ys)
+create_graph(xs, ys, title = f"PASO CONSTANTE con {count} iter")
 
+
+
+"""
+Sin embargo, esto nos consume una gran cantidad de pasos. Para evitar esto,
+podemos utilizar tamaños de paso adaptativos, buscando siempre que el paso nos deje
+en el punto más alto al que nos pueda llevar el gradiente local
+"""
+print("="*20)
+print("PARA UN TAMAÑO DE ADAPTATIVO")
+print("="*20)
+
+# Tamaño constante del paso 
+step_size = 1e-1
+steps = np.logspace(1e-3, 10.0, 15)         # Los diferentes valores de paso que vamos a evaluar
+
+# reiniciamos nuestros datos
+x0 = r0 * np.cos(theta0)
+y0 = r0 * np.sin(theta0)
+
+# Creamos la lista
+xs = [x0] 
+ys = [y0]
+
+# Inicializamos el gradiente 
+grad = find_gradient(x0, y0)
+
+# Contador para revisar cositas 
+count = 1
+
+# Realizamos el bucle
+while np.linalg.norm(grad) > treshold:
+   
+    # Ahora, vamos a elegir el gradiente de una forma más sofisticada.
+    # Vamos a evaluar la función en todos los posibles valores de `steps`*grad 
+    # y vamos a seleccionar aquel que nos lleve directamente al resultado más alto 
+    evs = Lcart(x0 + steps*grad[0], y0 + steps*grad[1])
+    
+    # Seleccionamos que el paso sea aquel que directamente nos lleva más arriba en la escala logarítmica
+    step_size = steps[list(evs).index(max(evs)) ]
+
+    # Agregamos estos valores al histórico
+    xs.append(x0)
+    ys.append(y0)
+
+    # Damos el paso
+    x0 += step_size * grad[0]
+    y0 += step_size * grad[1]
+
+    # Calculamos el gradiente 
+    grad = find_gradient(x0, y0)
+
+    # Imprimimos información
+    print(f"Paso {count}: x = {x0} | y = {y0} | f(x, y) = {Lcart(x0, y0)} | grad = {grad}")
+    count += 1 
+
+print()
+print("-"*10)
+print(f"Estimación final: r = {np.sqrt(x0**2 + y0**2)} | theta = {np.arctan2(x0, y0)} | f(r, theta) = {Lcart(x0, y0)} | grad = {grad}")
+print(f"dado en {count} pasos")
+print()
+
+
+create_graph(xs, ys, title = f"PASO ADAPTATIVO con {count} iter")
