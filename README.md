@@ -34,6 +34,10 @@ Las tareas de __EDOs de orden superior__ están en `SO_ODEs_homework.ipynb`.
 
 Primera tarea de la sección `MaxLuminosity.py`, donde se utiliza descenso del gradiente para hallar el máximo de una función que modela la luminosidad en un disco de acreción.
 
+## Branch PartialDifferentialEquations
+
+Contiene la primera tarea `NeutronStarCooling.ipynb`, donde se usa el método de Crank-Nicolson (explícito e implícito también) para calcular una PDE.
+
 ## Branch WeeklyProjects
 
 Aquí iré subiendo los mini-projectos a medida que los vaya haciendo, cada uno en su respectiva carpeta 
