@@ -19,10 +19,7 @@ def create_plots(F, x, y, nx=6, ny=5, method="Gauss-Seidel"):
     im = ax.imshow(F.T, cmap='viridis')
     
     # Create a colorbar for the heatmap
-    cbar = fig.colorbar(im)
-    
-    # Set label text for the colorbar
-    cbar.set_label_text('Units of F')  # Replace 'Units of F' with the actual units
+    cbar = fig.colorbar(im, orientation='horizontal', label=r"$\Phi$ [U. Arbitrarias]")
     
     ax.set_title(f'Heatmap usando {method}')
     
