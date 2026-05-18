@@ -38,6 +38,8 @@ Primera tarea de la sección `MaxLuminosity.py`, donde se utiliza descenso del g
 
 Contiene la primera tarea `NeutronStarCooling.ipynb`, donde se usa el método de Crank-Nicolson (explícito e implícito también) para calcular una PDE.
 
+Se agrega la tarea `PotencialGravitacionalDiscoProtoplanetario.ipynb` sobre usar Gauss-Speil y SOR para resolver una PDE con Dirichlet.
+
 ## Branch WeeklyProjects
 
 Aquí iré subiendo los mini-projectos a medida que los vaya haciendo, cada uno en su respectiva carpeta 
