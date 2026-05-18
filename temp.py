@@ -17,7 +17,9 @@ def create_plots(F, x, y, nx=6, ny=5, method="Gauss-Seidel"):
     fig, ax = plt.subplots()
 
     im = ax.imshow(F.T, cmap='viridis')
-    ax.colorbar(im)
+    
+    # Create a colorbar for the heatmap
+    cbar = fig.colorbar(im)
     
     ax.set_title(f'Heatmap usando {method}')
     
