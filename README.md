@@ -40,6 +40,8 @@ Contiene la primera tarea `NeutronStarCooling.ipynb`, donde se usa el método de
 
 Se agrega la tarea `PotencialGravitacionalDiscoProtoplanetario.ipynb` sobre usar Gauss-Speil y SOR para resolver una PDE con Dirichlet.
 
+Se agrega `PoissonPotential.ipynb`, que resuelve la ecuación de Poisson para el potencial gravitacional del sol 1D usando Elementos Finitos. 
+
 ## Branch WeeklyProjects
 
 Aquí iré subiendo los mini-projectos a medida que los vaya haciendo, cada uno en su respectiva carpeta 
