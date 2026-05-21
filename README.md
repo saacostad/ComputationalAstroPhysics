@@ -42,6 +42,10 @@ Se agrega la tarea `PotencialGravitacionalDiscoProtoplanetario.ipynb` sobre usar
 
 Se agrega `PoissonPotential.ipynb`, que resuelve la ecuación de Poisson para el potencial gravitacional del sol 1D usando Elementos Finitos. 
 
+## Branch MHD (Magnetic Hydro Dynamics)
+
+Tarea `Advección1D.ipynb`, sobre revisar evolución del pulso magnético en el tiempo utilizando _upwind_.
+
 ## Branch WeeklyProjects
 
 Aquí iré subiendo los mini-projectos a medida que los vaya haciendo, cada uno en su respectiva carpeta 
