@@ -30,7 +30,6 @@ T_max = 50000
 def P(T):
     return sigma * T**4 * np.exp(-T / T0) * (1. - np.exp(-hnu_kB / T))
 
-
 # Definición de la búsqueda por sección aurea
 def golden_section_search(f, a, b, tol=50e-3):
 
@@ -55,7 +54,6 @@ def golden_section_search(f, a, b, tol=50e-3):
 
     return (a + b) / 2, f((a + b) / 2)
 
-
 # Búsqueda por sección aurea
 max_T, max_P = golden_section_search(P, T_min, T_max)
 
@@ -67,7 +65,7 @@ T_values = np.linspace(T_min, T_max, 1000)
 P_values = P(T_values)
 plt.plot(T_values, P_values)
 plt.xlabel('Temperatura [K]')
-plt.ylabel('P [T]')
+plt.ylabel('P [Wm^-2 K^-4]')
 plt.title('Función de emisión estelar')
 plt.grid(True)
 plt.axvline(x=max_T, color='r', linestyle='--')
