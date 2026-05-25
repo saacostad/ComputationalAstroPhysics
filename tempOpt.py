@@ -26,39 +26,47 @@ hnu_kB = 5000
 T_min = 3000
 T_max = 50000
 
+# Golden ratio
+gr = (np.sqrt(5.) + 1.) / 2.  
+
+
 # Definición de la función
 def P(T):
     return sigma * T**4 * np.exp(-T / T0) * (1. - np.exp(-hnu_kB / T))
 
 # Definición de la búsqueda por sección aurea
-def golden_section_search(f, a, b, tol=50e-3):
-
-    # Golden ratio
-    gr = (np.sqrt(5.) + 1.) / 2.  
+def golden_section_search(f, xl, xu, tol=50):
     
-    # PSDT: las deficiniciones de las diapositivas estaban mal, 
-    # entonces toca cambiar el xl y xu para que funcione bien
+    # Las definiciones dadas en las diapositivas están mal, entonces toca 
+    # cambiarlas y usar mejor las que están en la wikipedia pero cambiarlas igualmente
+    x1 = xu - (xu - xl) / gr
+    x2 = xl + (xu - xl) / gr
 
-    d = gr * (b - a)
-    x1 = a + d 
-    x2 = b - d 
-
-    while abs(b - a) > tol:
+    count = 0
+    while abs(xu - xl) > tol:
         if f(x1) < f(x2):
-            b = x1 
+            xl = x1
+            x1 = x2
+            x2 = xl + (xu - xl) / gr
         else:
-            a = x2
+            xu = x2
+            x2 = x1
+            x1 = xu - (xu - xl) / gr
 
-        x1 = a + d
-        x2 = b - d
+        count += 1
 
-    return (a + b) / 2, f((a + b) / 2)
+    T_opt = (xl + xu) / 2
+    P_mxlx = f(T_opt)
+
+    return T_opt, P_mxlx, count
+
 
 # Búsqueda por sección aurea
-max_T, max_P = golden_section_search(P, T_min, T_max)
+max_T, max_P, it = golden_section_search(P, T_min, T_max)
 
 print(f"Temperatura óptima: {max_T} K")
 print(f"P(T) en la temperatura óptima: {max_P}")
+print(f"No iteraciones: {it}")
 
 # Creación de gráfica
 T_values = np.linspace(T_min, T_max, 1000)
@@ -70,3 +78,10 @@ plt.title('Función de emisión estelar')
 plt.grid(True)
 plt.axvline(x=max_T, color='r', linestyle='--')
 plt.show()
+
+
+
+"""
+Con esto anterior, podemos ver que este método, incluso teniendo un rango tan amplio de temperaturas iniciales, 
+es capaz de encontrar el máximo requerido en relativamente pocas iteraciones
+"""
