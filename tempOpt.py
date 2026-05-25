@@ -35,20 +35,23 @@ def P(T):
 def golden_section_search(f, a, b, tol=50e-3):
 
     # Golden ratio
-    gr = (np.sqrt(5) + 1) / 2  
+    gr = (np.sqrt(5.) + 1.) / 2.  
     
     # PSDT: las deficiniciones de las diapositivas estaban mal, 
     # entonces toca cambiar el xl y xu para que funcione bien
-    c = b - (b - a) / gr
-    d = a + (b - a) / gr
+
+    d = gr * (b - a)
+    x1 = a + d 
+    x2 = b - d 
 
     while abs(b - a) > tol:
-        if f(c) < f(d):
-            b = d
+        if f(x1) < f(x2):
+            b = x1 
         else:
-            a = c
-        c = b - (b - a) / d
-        d = a + (b - a) / d
+            a = x2
+
+        x1 = a + d
+        x2 = b - d
 
     return (a + b) / 2, f((a + b) / 2)
 
@@ -62,14 +65,10 @@ print(f"P(T) en la temperatura óptima: {max_P}")
 # Creación de gráfica
 T_values = np.linspace(T_min, T_max, 1000)
 P_values = P(T_values)
-
 plt.plot(T_values, P_values)
-plt.xlabel('Temperatura (K)')
-plt.ylabel('P(T)')
+plt.xlabel('Temperatura [K]')
+plt.ylabel('P [T]')
 plt.title('Función de emisión estelar')
 plt.grid(True)
-
-# Add a vertical line at the T_max value
 plt.axvline(x=max_T, color='r', linestyle='--')
-
 plt.show()
