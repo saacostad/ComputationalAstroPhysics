@@ -68,4 +68,8 @@ plt.xlabel('Temperatura (K)')
 plt.ylabel('P(T)')
 plt.title('Función de emisión estelar')
 plt.grid(True)
+
+# Add a vertical line at the T_max value
+plt.axvline(x=max_T, color='r', linestyle='--')
+
 plt.show()
