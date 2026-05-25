@@ -1,7 +1,6 @@
 import numpy as np 
 import matplotlib.pyplot as plt
 
-
 """
 Santiago Acosta.
 
@@ -25,6 +24,41 @@ hnu_kB = 5000
 
 # Definición de la función
 def P(T):
-    return sigma * T**4 * np.exp(-T / T0) * (1. - np.exp(-hnu_kB / T))]
+    return sigma * T**4 * np.exp(-T / T0) * (1. - np.exp(-hnu_kB / T))
 
 # Definición de la búsqueda por sección aurea
+def golden_section_search(f, a, b, tol=50e-3):
+    gr = (np.sqrt(5) + 1) / 2  # golden ratio
+    c = b - (b - a) / gr
+    d = a + (b - a) / gr
+
+    while abs(b - a) > tol:
+        if f(c) < f(d):
+            b = d
+        else:
+            a = c
+        c = b - (b - a) / gr
+        d = a + (b - a) / gr
+
+    return (a + b) / 2, f((a + b) / 2)
+
+# Intervalo de T
+T_min = 3000
+T_max = 50000
+
+# Búsqueda por sección aurea para encontrar el máximo de P(T)
+max_T, max_P = golden_section_search(P, T_min, T_max)
+
+print(f"Temperatura óptima: {max_T} K")
+print(f"P(T) en la temperatura óptima: {max_P}")
+
+# Creación de gráfica
+T_values = np.linspace(T_min, T_max, 1000)
+P_values = P(T_values)
+
+plt.plot(T_values, P_values)
+plt.xlabel('Temperatura (K)')
+plt.ylabel('P(T)')
+plt.title('Función de emisión estelar')
+plt.grid(True)
+plt.show()
