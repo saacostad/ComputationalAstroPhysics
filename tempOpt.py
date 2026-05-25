@@ -22,13 +22,23 @@ sigma = 5.67e-8
 T0 = 10000
 hnu_kB = 5000
 
+# Intervalo de T
+T_min = 3000
+T_max = 50000
+
 # Definición de la función
 def P(T):
     return sigma * T**4 * np.exp(-T / T0) * (1. - np.exp(-hnu_kB / T))
 
+
 # Definición de la búsqueda por sección aurea
 def golden_section_search(f, a, b, tol=50e-3):
-    gr = (np.sqrt(5) + 1) / 2  # golden ratio
+
+    # Golden ratio
+    gr = (np.sqrt(5) + 1) / 2  
+    
+    # PSDT: las deficiniciones de las diapositivas estaban mal, 
+    # entonces toca cambiar el xl y xu para que funcione bien
     c = b - (b - a) / gr
     d = a + (b - a) / gr
 
@@ -37,16 +47,13 @@ def golden_section_search(f, a, b, tol=50e-3):
             b = d
         else:
             a = c
-        c = b - (b - a) / gr
-        d = a + (b - a) / gr
+        c = b - (b - a) / d
+        d = a + (b - a) / d
 
     return (a + b) / 2, f((a + b) / 2)
 
-# Intervalo de T
-T_min = 3000
-T_max = 50000
 
-# Búsqueda por sección aurea para encontrar el máximo de P(T)
+# Búsqueda por sección aurea
 max_T, max_P = golden_section_search(P, T_min, T_max)
 
 print(f"Temperatura óptima: {max_T} K")
