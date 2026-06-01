@@ -46,6 +46,12 @@ Se agrega `PoissonPotential.ipynb`, que resuelve la ecuación de Poisson para el
 
 Tarea `Advección1D.ipynb`, sobre revisar evolución del pulso magnético en el tiempo utilizando _upwind_.
 
+
+## Branch Data
+
+En `0.6 ...` se agregan los dos ejercicios de análisis de imágenes `.fits`, usando las nebulas de la bola de cristal (NGC 1514) y la del águila (Meisser 17)
+
+
 ## Branch WeeklyProjects
 
 Aquí iré subiendo los mini-projectos a medida que los vaya haciendo, cada uno en su respectiva carpeta 
