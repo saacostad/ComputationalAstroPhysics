@@ -51,6 +51,7 @@ Tarea `Advección1D.ipynb`, sobre revisar evolución del pulso magnético en el 
 
 En `0.6 ...` se agregan los dos ejercicios de análisis de imágenes `.fits`, usando las nebulas de la bola de cristal (NGC 1514) y la del águila (Meisser 17)
 
+En `0.7 Intro to SQL` está `SQLexercises.py`, donde están todas las queries de SQL necesarias y se ejecuta usando la librería `sqlite3` de python. 
 
 ## Branch WeeklyProjects
 
