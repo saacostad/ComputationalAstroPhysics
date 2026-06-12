@@ -28,12 +28,12 @@ Lo que importa aquí es que siempre se presentan estas inestabilidades RT sin im
 
 ## Simulación propia
 
-Para hacer la simulación en 2 dimensiones, se tienen que resolver las ecuaciones de MHD. La forma más usual de hacerlo es a través de la PDE para el vector de variables conservadas, la cual representa las 4 (5 considerando $\Nabla \cdot \vec B$) del MHD de una manera linealizada [hablaré más a detalle en el notebook].
+Para hacer la simulación en 2 dimensiones, se tienen que resolver las ecuaciones de MHD. La forma más usual de hacerlo es a través de la PDE para el vector de variables conservadas, la cual representa las 4 (5 considerando $\nabla \cdot \vec B$) del MHD de una manera linealizada [hablaré más a detalle en el notebook].
 
 La ecuación a resolver entonces tiene la forma
 
 $$
-\frac{\partial U}{\partial t} = - \Nabla(F) + S
+\frac{\partial U}{\partial t} = - \nabla(F) + S
 $$
 
 donde $ U = (\rho, \rho v_x, \rho v_y, \rho v_z, B_x, B_y, B_z, E)$ y $F$ representa los flujos (salen directamente de las ecuaciones del MHD). El vector $S$ son fuentes, n este caso, "gravedad" (que la interpreto mejor como un campo eléctrico en dirección $-y$), y un término adicional $S_{Powell}$, que sirve para "limpiar la divergencia del campo magnético".
