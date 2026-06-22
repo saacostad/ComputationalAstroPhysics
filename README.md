@@ -53,6 +53,10 @@ En `0.6 ...` se agregan los dos ejercicios de análisis de imágenes `.fits`, us
 
 En `0.7 Intro to SQL` está `SQLexercises.py`, donde están todas las queries de SQL necesarias y se ejecuta usando la librería `sqlite3` de python; así como `4 ejercicios.ipynb`, que son los 4 ejercicios de `astroquery`. Aquí tuve un problema, y es que el 4to ejercicio no especifica cuál es la galaxia que queremos. entonces elegí la más llamativa. 
 
+## Branch ML (Machine Learning)
+
+En `tarea1.ipynb` está la tarea de usar regresiones lineales en sets de datos.
+
 ## Branch WeeklyProjects
 
 Aquí iré subiendo los mini-projectos a medida que los vaya haciendo, cada uno en su respectiva carpeta 
